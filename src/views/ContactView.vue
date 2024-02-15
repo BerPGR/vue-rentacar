@@ -8,7 +8,7 @@
         
         <textarea :style="{ margin: '20px 0', width: '100%' }" type="textarea" placeholder="Your message" v-model="messageValue" />
         
-        <button type="submit">SEND</button>
+        <button type="submit" class="btn-send">SEND</button>
       </form>
     </div>
 
@@ -125,13 +125,48 @@ export default {
       button {
         width: 50%;
         color: white;
+        position: relative;
         font-weight: 700;
-        background-color: #800080;
-        border-radius: 50px;
+        background: #800080;
         padding: 10px;
-        border: 1px solid #d3A7C1;
         margin-top: 10px;
         cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &.btn-send{
+          border: 2px solid #d3A7C1;
+          z-index: 1;
+          color: white;
+          margin-left: 12px;
+
+            &:after {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            direction: rtl;
+            z-index: -1;
+            background: rgb(255, 255, 255);
+            transition: all 0.3s ease;
+          }
+        
+          &:hover {
+            color: #800080;
+            border: 2px solid #800080;
+          
+            &:after {
+              left: auto;
+              right: 0;
+              width: 100%;
+            }
+          }
+      
+          &:active {
+            top: 2px;
+          }
+        }
       }
     }
   }

@@ -11,7 +11,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: ContactView
+    component: HomeView
   },
   {
     path: '/buy',
@@ -26,7 +26,7 @@ const routes = [
   {
     path: '/contact',
     name: 'contact',
-    component: HomeView
+    component: ContactView
   },
 ]
 
