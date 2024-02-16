@@ -7,6 +7,7 @@
             <router-link :to="li.to" style="text-decoration: none; color: inherit;">{{ li.text }}</router-link>
           </li>
         </ul>
+        <i class="fas fa-user" :style="{ color: 'white', border: '2px solid white', padding: '14px', borderRadius: '100px', cursor: 'pointer' }"></i>
       </nav>
     </header>
     <router-view/>
@@ -51,7 +52,7 @@ export default {
 header {
   position: relative;
   height: 80px;
-  padding: 0 20px;
+  padding: 0 80px;
   background-color: #0a0a0a;
   display: flex;
   align-items: center;
@@ -59,6 +60,10 @@ header {
   box-shadow: 0px 4px 12px #800080;
 
   nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
     ul {
       display: flex;
