@@ -47,12 +47,13 @@ export default {
   padding: 0;
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  color: white;
 }
 
 header {
   position: relative;
   height: 80px;
-  padding: 0 80px;
+  padding: 0 50px;
   background-color: #0a0a0a;
   display: flex;
   align-items: center;
@@ -83,7 +84,6 @@ header {
         &.btn-navbar {
           border: 2px solid rgb(255, 255, 255);
           z-index: 1;
-          color: white;
           margin-left: 12px;
 
             &:after {
@@ -111,6 +111,11 @@ header {
       
           &:active {
             top: 2px;
+          }
+
+          &:focus {
+            background: rgb(255, 255, 255);
+            color: black;
           }
         }
       }

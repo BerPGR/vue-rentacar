@@ -5,17 +5,15 @@
     </div>
     <div class="info-container">
         <div class="car-info">
-            <div class="car-info-left">
-                <p :style="{ color: '#800080', fontWeight: 'bold', fontSize: '24px'}">{{ car.brand }}</p>
-                <p>{{ car.model }}</p>
-            </div>
-            <div class="car-info-right">
-                <p v-if="car.used == false">Used</p>
-                <p v-else>New</p>
+                <p :style="{ color: '#800080', fontWeight: 'bold', fontSize: '24px', fontStyle: 'italic'}">{{ car.brand }} <span :style="{color: 'white', fontWeight: 'normal', fontSize: '20px', fontStyle: 'normal'}">{{ car.model }}</span></p>
+                <p :style="{ margin: '6px 0'}" v-if="car.used == false">New</p>
+                <p :style="{ margin: '6px 0'}" v-else>Used</p>
                 <p :style="{ color: '#800080', fontSize: '24px', fontWeight: 'bold'}">{{ car.year }}</p>
-            </div>
         </div>
-        <button>VER CARRO</button>
+        <div class="cta-info">
+            <p>${{ car.price }},00</p>
+            <button @click="carClick">VER CARRO</button>
+        </div>
     </div>
   </div>
 </template>
@@ -25,6 +23,11 @@ export default {
 name:'CarComponent',
 props: {
     car: Object
+},
+methods: {
+    carClick() {
+        this.$router.push('/contact')
+    }
 }
 
 }
@@ -38,10 +41,8 @@ props: {
     margin: 20px;
 
     .car-container {
-        padding: 20px;
         width: 300px;
         height: 220px;
-        border: 2px solid rgba(32,32,32);
 
         .car-img {
             object-fit: contain;
@@ -53,30 +54,37 @@ props: {
     .info-container {
         width: 300px;
         height: 150px;
-        background: rgba(32,32,32);
-        padding: 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        text-align: center;
+        justify-content: space-around;
         color: white;
 
-        .car-info {
+        .cta-info {
+
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
+
+            p {
+                margin-right: 10px;
+                font-size: 20px;
+            }
+
+            button {
+                margin-left: 10px;
+                width: 100%;
+                padding: 10px;
+                background-color: #800080;
+                color: white;
+                font-weight: 600;
+                border: 2px solid white;
+                cursor: pointer;
+            }
         }
 
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #800080;
-            color: white;
-            font-weight: 600;
-            border: 2px solid white;
-            cursor: pointer;
-        }
+        
     }
 }
 
